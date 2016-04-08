@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>usrc</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//自定义单元格
++ (instancetype)TodoHomeCellWithTableView:(UITableView *)tableView
+{
+    static NSString *ID = @"todo_cell";
+    FQTodoHomeCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    
+    if (!cell) {
+        cell = [[FQTodoHomeCell alloc] initWithReuseIdentifier:ID];
+    }
+
+    //设置cell的属性
+    // iOS 7 separator,没间距
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        cell.separatorInset = UIEdgeInsetsZero;
+    }
+    
+    //[cell setSelectionStyle:UITableViewCellSelectionStyleGray];
+    //cell.contentView.backgroundColor = [UIColor grayColor];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
+    return cell;
+}
+
+//重写initWithReuseIdentifier方法，在创建cell的时候，同时创建子控件
+- (instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier
+{
+    if (self = [super initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier]) {
+        //在这里加上子控件的代码
+    }
+    return self;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>0FD8A944-5792-4132-9987-257626D48C82</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>user_define_cell</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>fq_user_cell</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

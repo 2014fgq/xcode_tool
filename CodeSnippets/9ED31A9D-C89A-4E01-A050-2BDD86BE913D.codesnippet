@@ -3,24 +3,33 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>fq_init</string>
+	<string>lazy</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>CodeBlock</string>
+		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    self = [super init];
-    if (self) {
+	<string>#pragma mark - 懒加载
+- (instancetype)initWithDict:(NSDictionary *)dict
+{
+    if(self = [super init])
+    {
+        [self setValuesForKeysWithDictionary:dict];
     }
-    return self;</string>
+    return self;
+}
++ (instancetype)groupWithDict:(NSDictionary *)dict
+{
+    return [[self alloc] initWithDict:dict];
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>93934053-BDF5-48C3-8B7F-08EB04D69442</string>
+	<string>9ED31A9D-C89A-4E01-A050-2BDD86BE913D</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>fq init code</string>
+	<string>lazy</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>fq init code</string>
+	<string>FQ_lazy</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

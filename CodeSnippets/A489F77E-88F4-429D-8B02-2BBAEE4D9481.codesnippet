@@ -3,24 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>fq_init</string>
+	<string>usrvm</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>CodeBlock</string>
+		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    self = [super init];
-    if (self) {
-    }
-    return self;</string>
+	<string>//保证cell的加载到父控件，frame不为0
+- (void) layoutSubviews
+{
+    [super layoutSubviews];
+}
+
+- (void)setGroupModel:(FQGroup *)groupModel
+{
+    //赋值
+    groupModel = groupModel;
+    //将Model赋给子控件
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>93934053-BDF5-48C3-8B7F-08EB04D69442</string>
+	<string>A489F77E-88F4-429D-8B02-2BBAEE4D9481</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>fq init code</string>
+	<string>view model </string>
 	<key>IDECodeSnippetTitle</key>
-	<string>fq init code</string>
+	<string>fq_user_vm</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

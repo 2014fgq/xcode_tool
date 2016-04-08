@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>tvrc</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark - setup rc
+- (void) install_rc
+{
+    //初始化UIRefreshControl
+    UIRefreshControl *rc = [[UIRefreshControl alloc] init];
+    rc.attributedTitle = [[NSAttributedString alloc]initWithString:@"下拉刷新"];
+    [rc addTarget:self action:@selector(refreshTableView) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = rc;
+}
+
+-(void) refreshTableView
+{
+    if (self.refreshControl.refreshing) {
+        self.refreshControl.attributedTitle = [[NSAttributedString alloc]initWithString:@"加载中..."];
+        //添加新的模拟数据
+        NSDate *date = [[NSDate alloc] init];
+        //模拟请求完成之后，回调方法callBackMethod
+        [self performSelector:@selector(callBackMethod:) withObject:date afterDelay:3];
+    }
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>E550CDCE-124E-4807-A53F-82A7FCB7958F</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>table view refreshcontrol</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>fq_table view refreshcontrol</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

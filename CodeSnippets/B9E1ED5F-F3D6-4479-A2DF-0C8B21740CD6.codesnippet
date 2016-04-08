@@ -28,7 +28,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"Cell %d", indexPath.row];
+    //cell.textLabel.text = [NSString stringWithFormat:@"Cell %d", indexPath.row];
     
     return cell;
 }
@@ -43,7 +43,7 @@
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>ELC UITableView - Delegate - Datasource</string>
+	<string>fq ELC UITableView - Delegate - Datasource</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

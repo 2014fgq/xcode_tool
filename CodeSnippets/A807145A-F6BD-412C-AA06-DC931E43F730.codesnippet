@@ -3,13 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>tq_hide_keyboard</string>
+	<string>hide_keyboard</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	<string>#pragma mark - hide keyboard
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
     [self.view endEditing:YES];
 }
@@ -21,7 +22,7 @@
 	<key>IDECodeSnippetSummary</key>
 	<string>hide keyboard when touch background</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>hide keyboard</string>
+	<string>fq_hide keyboard</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

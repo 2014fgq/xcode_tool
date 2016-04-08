@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>igt</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark - gestur
+- (void) install_gesture:(UIView *)view
+{
+    NSLog(@"Install gesture");
+    UIPanGestureRecognizer *panGr = [[UIPanGestureRecognizer alloc]
+                                     initWithTarget:self action:@selector(panToDo:)];
+    [view addGestureRecognizer:panGr];
+    
+    UIPinchGestureRecognizer *pinchGr = [[UIPinchGestureRecognizer alloc]
+                                         initWithTarget:self action:@selector(pinchTodo:)];
+    [view addGestureRecognizer:pinchGr];
+    
+    UILongPressGestureRecognizer *longPressGr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDo:)];
+    longPressGr.minimumPressDuration = 3.0;
+    [view addGestureRecognizer:longPressGr];
+    
+    UITapGestureRecognizer *singletap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singletap:)];
+    singletap.numberOfTapsRequired = 1;
+    [view addGestureRecognizer:singletap];
+    
+    UITapGestureRecognizer *doubletap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubletap:)];
+    singletap.numberOfTapsRequired = 2;
+    [view addGestureRecognizer:doubletap];
+    [singletap requireGestureRecognizerToFail:doubletap];
+}
+
+- (void)panToDo:(UIPanGestureRecognizer *)gesture
+{
+    NSLog(@"longPressToDo");
+}
+
+-(void)longPressToDo:(UILongPressGestureRecognizer *)gesture
+{
+    NSLog(@"longPressToDo");
+}
+
+-(void)pinchTodo:(UIPinchGestureRecognizer *)gesture
+{
+    NSLog(@"pinchToDo");
+}
+-(void)singletap:(UITapGestureRecognizer *)gesture
+{
+    NSLog(@"singletap");
+}
+-(void)doubletap:(UITapGestureRecognizer *)gesture
+{
+    NSLog(@"doubletap");
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>3357270B-15C0-4581-BC12-6D109C103A40</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>gesture_install_fzgq</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>fq_gesture_install</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

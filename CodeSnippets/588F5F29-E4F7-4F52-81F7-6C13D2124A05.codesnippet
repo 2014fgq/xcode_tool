@@ -3,24 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>fq_init</string>
+	<string>ssg</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
-		<string>CodeBlock</string>
+		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>    self = [super init];
-    if (self) {
+	<string>- (UILabel *)label
+{
+    if (!_label) {
+        _label = [[UILabel alloc] initWithFrame:CGRectMake(320, 20, 50, 30)];
+        [_label.layer setBorderWidth:2.0];
+        [_label.layer setBorderColor:[UIColor blueColor].CGColor];
+        _label.layer.cornerRadius = 8;
+        _label.layer.masksToBounds = true;
+        [self addSubview:_label];
     }
-    return self;</string>
+    return _label;
+}</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>93934053-BDF5-48C3-8B7F-08EB04D69442</string>
+	<string>588F5F29-E4F7-4F52-81F7-6C13D2124A05</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.Objective-C</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>fq init code</string>
+	<string>fq strong UIView define</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>fq init code</string>
+	<string>fq strong UIView define</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
