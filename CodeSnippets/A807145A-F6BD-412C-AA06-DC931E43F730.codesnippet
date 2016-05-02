@@ -14,6 +14,13 @@
     [super touchesBegan:touches withEvent:event];
     [self.view endEditing:YES];
 }
+
+//滚动时退出键盘
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    NSLog(@"scrollViewWillBeginDragging");
+    [self.view endEditing:YES];
+}
 </string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>A807145A-F6BD-412C-AA06-DC931E43F730</string>
