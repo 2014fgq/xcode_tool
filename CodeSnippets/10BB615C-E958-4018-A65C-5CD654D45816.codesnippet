@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>keyboard</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark - 监听键盘
+-(void) install_keyboardNoti
+{
+    //监听键盘弹出事件
+    //监听键盘通知
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardDidHideNotification object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+    //UIKeyboardDidShowNotification,键盘显示
+    //UIKeyboardDidHideNotification,键盘隐藏
+    //UIKeyboardWillChangeFrameNotification,键盘frame改变
+    
+}
+
+#pragma mark - 键盘更改frame的时候，键盘弹出
+//不适用willshow,willhide,didshow,didhide方法，因为hide太慢了,为了对称，show都不使用了
+- (void)keyboardWillChangeFrame:(NSNotification*)notification
+{
+    //NSLog(@"keyboardWillChangeFrame %f", [notification.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue].origin.y);
+    
+    //获取键盘弹入弹出时的位置
+    CGFloat keyboardbefore = [notification.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue].origin.y;
+    CGFloat keyboardend = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].origin.y;
+    CGFloat diff = keyboardend - keyboardbefore;
+    NSInteger scroll = 0;
+    NSInteger Idx = self.IdxPath.row;
+    //根据diff来判断键盘是弹入还是弹出
+    if(diff &lt; 0) //弹出
+        scroll = -Idx*NORMAL_CELL_FINISHING_HEIGHT;
+    else
+        scroll = 0;//不滚动，为0
+    
+    //动画展示键盘弹入弹出
+    [UIView animateWithDuration:0.25 animations:^{
+        self.view.transform = CGAffineTransformMakeTranslation(0, scroll);
+    }];
+    //NSIndexPath *randomIdxPath = [NSIndexPath indexPathForRow:4 inSection:0];
+    //[self.tableView scrollToRowAtIndexPath:randomIdxPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+}
+
+- (void)keyboardWillDidShow:(NSNotification*)notification
+{
+}
+
+- (void)keyboardWillHide:(NSNotification*)notification
+{
+    //NSLog(@"keyboardWillChangeFrame %f", [notification.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue].origin.y);
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>10BB615C-E958-4018-A65C-5CD654D45816</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>keyboard</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

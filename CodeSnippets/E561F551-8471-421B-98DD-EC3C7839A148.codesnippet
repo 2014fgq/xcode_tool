@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>cltview</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#pragma mark - &lt;UICollectionViewDelegateFlowLayout&gt;代理
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGSize size = CGSizeMake(TCYP_SCREEN_WIDTH, TCYP_SCREEN_HEIGHT);
+    return size;
+}
+
+#pragma mark - &lt;UICollectionViewDataSource&gt;代理
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.imageNameArray.count;
+}
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    GPGuidePageItemCCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:reUseGuideCellId forIndexPath:indexPath];
+    cell.starupButton.hidden = (indexPath.row != self.imageNameArray.count - 1);
+    cell.registerButton.hidden = (indexPath.row != self.imageNameArray.count - 1);
+    cell.loginButton.hidden = (indexPath.row != self.imageNameArray.count - 1);
+    cell.bgImageView.image = [UIImage imageNamed:self.imageNameArray[indexPath.row]];
+    cell.delegate = self;
+    return cell;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>E561F551-8471-421B-98DD-EC3C7839A148</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>collectionview</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>collection_view</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

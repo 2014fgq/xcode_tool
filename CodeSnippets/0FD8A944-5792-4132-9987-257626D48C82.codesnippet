@@ -10,7 +10,7 @@
 	</array>
 	<key>IDECodeSnippetContents</key>
 	<string>//自定义单元格
-+ (instancetype)TodoHomeCellWithTableView:(UITableView *)tableView
++ (instancetype)CellWithTableView:(UITableView *)tableView
 {
     static NSString *ID = @"todo_cell";
     FQTodoHomeCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
@@ -28,7 +28,7 @@
     //[cell setSelectionStyle:UITableViewCellSelectionStyleGray];
     //cell.contentView.backgroundColor = [UIColor grayColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
@@ -39,7 +39,22 @@
         //在这里加上子控件的代码
     }
     return self;
-}</string>
+}
+
+//保证cell的加载到父控件，frame不为0
+- (void) layoutSubviews
+{
+    [super layoutSubviews];
+}
+
+-(void)setModel:(FZQProductMainItemModel *)model
+{
+    //赋值
+    _model = model;
+    //将Model赋给子控件
+}
+
+</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>0FD8A944-5792-4132-9987-257626D48C82</string>
 	<key>IDECodeSnippetLanguage</key>

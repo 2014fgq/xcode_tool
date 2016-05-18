@@ -9,18 +9,31 @@
 		<string>ClassImplementation</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>//保证cell的加载到父控件，frame不为0
-- (void) layoutSubviews
-{
-    [super layoutSubviews];
+	<string>- (void)getLatestDatas {
+    NSString *url =  @"http://api.g.caipiao.163.com/homepage/list_goods.html?goodsType=all";
+    [FQHttpOperation getRequestWithURL:url parameters:nil success:^(id responseObject) {
+        FZQProductModel *model = [FZQProductModel yy_modelWithJSON:responseObject];
+        self.model = model;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"getLatestDatas" object:nil];
+    } failure:^(NSError * error) {
+        NSLog(@"%@", error);
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"getLatestDatasFail" object:nil];
+    }];
+}
+//获取最新的数据
+- (void)getLatestHeaderDatas {
+    NSString *url =  @"http://api.g.caipiao.163.com/homepage/list_header.html";
+    [FQHttpOperation getRequestWithURL:url parameters:nil success:^(id responseObject) {
+        FZQArenaModel *model = [FZQArenaModel yy_modelWithJSON:responseObject];
+        self.header_model = model;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"getLatestHeaderDatas" object:nil];
+    } failure:^(NSError * error) {
+        NSLog(@"%@", error);
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"getLatestHeaderDatasFail" object:nil];
+    }];
 }
 
-- (void)setGroupModel:(FQGroup *)groupModel
-{
-    //赋值
-    groupModel = groupModel;
-    //将Model赋给子控件
-}</string>
+</string>
 	<key>IDECodeSnippetIdentifier</key>
 	<string>A489F77E-88F4-429D-8B02-2BBAEE4D9481</string>
 	<key>IDECodeSnippetLanguage</key>

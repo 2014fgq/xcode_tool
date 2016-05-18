@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>platform :ios, "7.0"
+pod "DZNEmptyDataSet"
+pod "YYWebImage"
+pod "MJRefresh"
+pod "AFNetworking", "~&gt; 3.0.1"
+pod "YYModel"
+pod 'MBProgressHUD', '~&gt; 0.9.1'
+#pod 'MOBFoundation'                    #Facebook改为原生的SDK
+#pod 'ShareSDK2'
+#pod 'ShareSDK2/UI/Flat'
+#pod 'ShareSDK2/UI/iPadDefault'
+#pod 'ShareSDK2/Connection/Facebook'
+pod 'Bugly'                             #腾讯bugly崩溃测试SDK
+pod 'IQKeyboardManager'                 #键盘遮挡输入框的第三方解决方案
+
+
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>FBEDEE6F-FBC9-410B-B04D-7773971D97A4</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Ruby</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>pods</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

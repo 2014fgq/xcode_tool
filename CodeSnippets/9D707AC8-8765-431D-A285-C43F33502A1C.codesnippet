@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>lazy</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>- (UIView *)view
+{
+    if(!_view)
+    {
+        //合入头部图片滚动功能
+//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, LOTTERY_HEADERVIEWHEIGH, SCREEN_WIDTH, 1.1*LOTTERY_HEADERVIEWHEIGH)];
+//        self.view = view;
+//        [self.view.layer setBorderWidth:2.0];
+//        self.view.layer.masksToBounds = true;
+//        [self.view.layer setBorderColor:(__bridge CGColorRef _Nullable)([UIColor blackColor])];
+//        self.view.backgroundColor = [UIColor whiteColor];
+        
+        UIView *view = [[[NSBundle mainBundle] loadNibNamed:@"FZQSubLotteryHV" owner:self options:nil] lastObject];
+        self.view = view;
+        [self addSubview:self.view];
+    }
+    return _view;
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>9D707AC8-8765-431D-A285-C43F33502A1C</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>lazy_view</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
